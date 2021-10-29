@@ -33,7 +33,7 @@ public class CarController {
     }
 
     @ApiOperation(value = "Supprime une voiture par rapport à son ID")
-    @GetMapping(value="/Cars/delete/{id}")
+    @DeleteMapping(value="/Cars/{id}")
     public Boolean SupprimerCar(@PathVariable int id){
         return carDao.delete(id);
     }
@@ -46,7 +46,7 @@ public class CarController {
     }
 
     @ApiOperation(value = "Mettre à jour une voiture existante")
-    @PostMapping(value="/Cars/update/{id}")
+    @PutMapping(value="/Cars/{id}")
     public Car ModifierCar(@RequestBody Car updateCar, @PathVariable int id){
         carDao.update(updateCar,id);
         return updateCar;
